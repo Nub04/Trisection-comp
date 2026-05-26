@@ -1,0 +1,7 @@
+# Genus-1 trisection diagram of CP^2.
+# Basis of H_1(Sigma)=Z^2 is (a | b); each row is a length-2g=2 vector.
+g 1
+a 1 0
+b 0 1
+c 1 1
+# Expected: b2=1, signature +1, Q=[1], odd.

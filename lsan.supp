@@ -1,0 +1,15 @@
+# LeakSanitizer suppressions for bhrt_trisect.
+#
+# The NVIDIA CUDA driver (libcuda.so) and runtime (libcudart) allocate
+# internal state on first use and hold it until process teardown, which
+# LeakSanitizer reports as leaks. These are NOT bugs in this project --
+# every reported frame lives inside the driver, not in bhrt code.
+#
+# Usage (keeps leak detection on for our own code, ignores the driver):
+#
+#   LSAN_OPTIONS=suppressions=lsan.supp BHRT_USE_GPU=1 \
+#       ./build/bhrt-cli search 64 4 50 0
+#
+leak:libcuda
+leak:libcudart
+leak:libcuda.so

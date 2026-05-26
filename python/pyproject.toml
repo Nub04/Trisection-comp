@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bhrt_trisect"
+version = "0.1.0"
+description = "BHRT trisection pipeline + GPU genus-reduction engine"
+readme = "../README.md"
+requires-python = ">=3.10"
+authors = [
+  { name = "bhrt_trisect contributors" },
+]
+license = { text = "MIT" }
+dependencies = [
+  "numpy>=1.26",
+  "sympy>=1.12",
+]
+
+[project.optional-dependencies]
+gpu_numba = ["numba>=0.59"]
+gpu_pycuda = ["pycuda>=2024.1"]
+test = ["pytest>=7"]
+dev = ["black", "ruff", "mypy"]
+
+[project.scripts]
+bhrt-trisect = "bhrt_trisect.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["bhrt_trisect*"]
+
+[tool.pytest.ini_options]
+testpaths = ["../tests"]

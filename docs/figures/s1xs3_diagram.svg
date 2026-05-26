@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="620" height="600" viewBox="0 0 620 600" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="ar2" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#333"/>
+    </marker>
+  </defs>
+
+  <text x="310" y="38" text-anchor="middle" font-size="23" font-weight="bold">Genus-1 trisection diagram of  S&#185;&#215;S&#179;</text>
+  <text x="310" y="62" text-anchor="middle" font-size="14" fill="#555">all three cut systems are the same curve &#8658; nothing is killed in that direction</text>
+
+  <rect x="120" y="100" width="360" height="360" fill="#fbfbf7" stroke="#333" stroke-width="2.5"/>
+
+  <!-- identification arrows -->
+  <line x1="120" y1="300" x2="120" y2="270" stroke="#333" stroke-width="2.5" marker-end="url(#ar2)"/>
+  <line x1="480" y1="300" x2="480" y2="270" stroke="#333" stroke-width="2.5" marker-end="url(#ar2)"/>
+  <line x1="290" y1="100" x2="320" y2="100" stroke="#333" stroke-width="2.5" marker-end="url(#ar2)"/>
+  <line x1="300" y1="100" x2="330" y2="100" stroke="#333" stroke-width="2.5" marker-end="url(#ar2)"/>
+  <line x1="290" y1="460" x2="320" y2="460" stroke="#333" stroke-width="2.5" marker-end="url(#ar2)"/>
+  <line x1="300" y1="460" x2="330" y2="460" stroke="#333" stroke-width="2.5" marker-end="url(#ar2)"/>
+
+  <!-- three parallel (1,0) curves: alpha, beta, gamma all = a -->
+  <line x1="120" y1="250" x2="480" y2="250" stroke="#c0392b" stroke-width="3.5"/>
+  <line x1="120" y1="300" x2="480" y2="300" stroke="#2471a3" stroke-width="3.5"/>
+  <line x1="120" y1="350" x2="480" y2="350" stroke="#1e8449" stroke-width="3.5"/>
+
+  <text x="455" y="243" font-size="18" fill="#c0392b" font-weight="bold">&#945;</text>
+  <text x="455" y="293" font-size="18" fill="#2471a3" font-weight="bold">&#946;</text>
+  <text x="455" y="343" font-size="18" fill="#1e8449" font-weight="bold">&#947;</text>
+
+  <text x="120" y="500" font-size="15" font-weight="bold">&#945; = &#946; = &#947; = a = (1,0)&#8195;&#8658;&#8195;V&#8321;=V&#8322;=V&#8323;=&#10216;a&#10217;</text>
+  <text x="120" y="528" font-size="15">H&#8321;(X) = Z&#178; / &#10216;a&#10217; = Z&#8195;&#8658;&#8195;b&#8321; = b&#8323; = 1,&#8195;b&#8322; = 0,&#8195;&#963; = 0.</text>
+  <text x="120" y="560" font-size="13" fill="#666">No crossings: the three handlebodies all compress the same curve, leaving an S&#185; factor.</text>
+  <text x="120" y="582" font-size="13" fill="#666">Contrast with CP&#178;, where the three curves are in general position (b&#8322;=1, &#963;=+1).</text>
+</svg>

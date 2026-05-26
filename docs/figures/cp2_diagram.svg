@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="620" height="600" viewBox="0 0 620 600" font-family="Georgia, 'Times New Roman', serif">
+  <defs>
+    <marker id="ar" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#333"/>
+    </marker>
+    <marker id="arR" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#c0392b"/>
+    </marker>
+    <marker id="arB" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#2471a3"/>
+    </marker>
+    <marker id="arG" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L7,3 L0,6 Z" fill="#1e8449"/>
+    </marker>
+  </defs>
+
+  <text x="310" y="38" text-anchor="middle" font-size="23" font-weight="bold">Genus-1 trisection diagram of  CP&#178;</text>
+  <text x="310" y="62" text-anchor="middle" font-size="14" fill="#555">central surface &#931; = torus; cut systems &#945;, &#946;, &#947; pairwise meet once</text>
+
+  <!-- torus fundamental square -->
+  <rect x="120" y="100" width="360" height="360" fill="#fbfbf7" stroke="#333" stroke-width="2.5"/>
+
+  <!-- edge identification arrows: left/right single (a-dir), top/bottom double (b-dir) -->
+  <line x1="120" y1="300" x2="120" y2="270" stroke="#333" stroke-width="2.5" marker-end="url(#ar)"/>
+  <line x1="480" y1="300" x2="480" y2="270" stroke="#333" stroke-width="2.5" marker-end="url(#ar)"/>
+  <line x1="290" y1="100" x2="320" y2="100" stroke="#333" stroke-width="2.5" marker-end="url(#ar)"/>
+  <line x1="300" y1="100" x2="330" y2="100" stroke="#333" stroke-width="2.5" marker-end="url(#ar)"/>
+  <line x1="290" y1="460" x2="320" y2="460" stroke="#333" stroke-width="2.5" marker-end="url(#ar)"/>
+  <line x1="300" y1="460" x2="330" y2="460" stroke="#333" stroke-width="2.5" marker-end="url(#ar)"/>
+
+  <!-- alpha = (1,0) horizontal -->
+  <line x1="120" y1="300" x2="480" y2="300" stroke="#c0392b" stroke-width="3.5"/>
+  <!-- beta = (0,1) vertical -->
+  <line x1="240" y1="100" x2="240" y2="460" stroke="#2471a3" stroke-width="3.5"/>
+  <!-- gamma = (1,1) diagonal -->
+  <line x1="120" y1="460" x2="480" y2="100" stroke="#1e8449" stroke-width="3.5"/>
+
+  <!-- pairwise single intersections -->
+  <circle cx="240" cy="300" r="5.5" fill="#111"/>
+  <circle cx="280" cy="300" r="5.5" fill="#111"/>
+  <circle cx="240" cy="340" r="5.5" fill="#111"/>
+
+  <!-- curve labels -->
+  <text x="455" y="293" font-size="18" fill="#c0392b" font-weight="bold">&#945;</text>
+  <text x="248" y="120" font-size="18" fill="#2471a3" font-weight="bold">&#946;</text>
+  <text x="450" y="118" font-size="18" fill="#1e8449" font-weight="bold">&#947;</text>
+
+  <!-- legend / invariants -->
+  <text x="120" y="500" font-size="15" font-weight="bold">Homology classes in H&#8321;(&#931;) = Z&#178;  (basis a, b):</text>
+  <text x="135" y="522" font-size="15" fill="#c0392b">&#945; = a = (1,0)</text>
+  <text x="285" y="522" font-size="15" fill="#2471a3">&#946; = b = (0,1)</text>
+  <text x="420" y="522" font-size="15" fill="#1e8449">&#947; = a+b = (1,1)</text>
+  <text x="120" y="552" font-size="15">Linking matrix  Q = M&#8201;N&#8315;&#185; = (1)&#8195;&#8658;&#8195;b&#8322; = 1,&#8195;&#963; = +1,&#8195;form is <tspan font-weight="bold">odd</tspan>.</text>
+  <text x="120" y="578" font-size="13" fill="#666">Each pair (&#945;,&#946;), (&#946;,&#947;), (&#945;,&#947;) is a genus-1 Heegaard diagram of S&#179; (one crossing).</text>
+</svg>

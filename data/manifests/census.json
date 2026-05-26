@@ -1,0 +1,46 @@
+{
+  "_comment": "Corpus manifest for the BHRT trisection regression suite. Each entry points at a public Dim4Census .esig file, the exact size, and the documented Spreer-Tillmann ts-tricolouring count to validate against.",
+  "source_repo": "https://github.com/regina-normal/Dim4Census",
+  "regina_required_version": "7.4",
+  "corpora": [
+    {
+      "name": "2p-closedOrientable",
+      "path": "data/Census/2p-closedOrientable.esig",
+      "n_triangulations": 8,
+      "n_with_ts_tricolouring": 2,
+      "limit": null,
+      "purpose": "smoke test, full census fits in milliseconds"
+    },
+    {
+      "name": "4p-closedOrientable",
+      "path": "data/Census/4p-closedOrientable.esig",
+      "n_triangulations": 784,
+      "n_with_ts_tricolouring": 15,
+      "limit": null,
+      "purpose": "regression test, full census fits in seconds"
+    },
+    {
+      "name": "6p-closedOrientable",
+      "path": "data/Census/6p-closedOrientable.esig",
+      "n_triangulations": 440495,
+      "n_pass_precheck": 116336,
+      "n_after_no_one_vertex_triangle": 837,
+      "n_with_tricolouring": 824,
+      "n_with_c_tricolouring": 450,
+      "n_with_ts_tricolouring": 445,
+      "n_ts_tricolourings_total": 1087,
+      "limit": null,
+      "purpose": "full-scale front-half validation"
+    },
+    {
+      "name": "4p-non-trivial-2knot",
+      "path": "data/Census/4p-non-trivial-2-knot.rga",
+      "n_triangulations": null,
+      "limit": null,
+      "purpose": "second-paper / relative trisection material"
+    }
+  ],
+  "golden_minimal_genus_isosigs": [
+    "_comment: the 11 six-pentachora isosigs from Spreer-Tillmann at which the minimal trisection genus is achieved. Populate with the published list from the supplementary materials."
+  ]
+}
