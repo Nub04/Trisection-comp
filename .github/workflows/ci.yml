@@ -1,0 +1,61 @@
+name: CI
+
+# Build and test the BHRT trisection core on every push and PR.
+#
+# Coverage: the CPU + exact-GMP core via BOTH build systems (hand Makefile and
+# CMake), plus the no-GMP fallback. The Regina and CUDA backends are NOT built
+# here -- Regina is a from-source dependency and CUDA needs a GPU runner, so
+# those paths are validated locally. This workflow proves the core pipeline and
+# the exact FKSZ engine (incl. test_invariants_exact_matches_linking) compile
+# and pass on a clean machine.
+
+on:
+  push:
+    branches: [ master, main ]
+  pull_request:
+    branches: [ master, main ]
+
+jobs:
+  make:
+    name: Makefile build + tests (GMP=${{ matrix.gmp }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        gmp: ["1", "0"]   # 1 = exact GMP engine (default); 0 = int64 fallback
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential libgmp-dev
+
+      - name: Build (all targets)
+        run: make BHRT_HAS_GMP=${{ matrix.gmp }} all
+
+      - name: Run native test suite
+        # The default Makefile build uses AddressSanitizer; disable the
+        # exit-time leak check in CI so the run reports only hard errors and
+        # assertion results (LeakSanitizer is exercised locally with lsan.supp).
+        run: ASAN_OPTIONS=detect_leaks=0 ./build/bhrt-test
+
+  cmake:
+    name: CMake build + ctest (Release)
+    runs-on: ubuntu-latest   # 24.04: provides CMake >= 3.24 (required)
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential cmake libgmp-dev
+
+      - name: Configure
+        run: cmake -S cpp -B build-cmake -DCMAKE_BUILD_TYPE=Release
+
+      - name: Build
+        run: cmake --build build-cmake -j
+
+      - name: Test
+        run: ctest --test-dir build-cmake --output-on-failure
