@@ -1,8 +1,0 @@
-/home/nub-04/Math rs/bhrt_trisect/build-cmake/CMakeFiles/bhrt_core.dir
-/home/nub-04/Math rs/bhrt_trisect/build-cmake/CMakeFiles/bhrt-cli.dir
-/home/nub-04/Math rs/bhrt_trisect/build-cmake/CMakeFiles/bhrt-bench.dir
-/home/nub-04/Math rs/bhrt_trisect/build-cmake/CMakeFiles/bhrt-test.dir
-/home/nub-04/Math rs/bhrt_trisect/build-cmake/CMakeFiles/bhrt-diagram.dir
-/home/nub-04/Math rs/bhrt_trisect/build-cmake/CMakeFiles/test.dir
-/home/nub-04/Math rs/bhrt_trisect/build-cmake/CMakeFiles/edit_cache.dir
-/home/nub-04/Math rs/bhrt_trisect/build-cmake/CMakeFiles/rebuild_cache.dir

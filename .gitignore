@@ -1,0 +1,78 @@
+# ===========================================================================
+# Build output.  These directories also embed absolute build paths
+# (e.g. /home/<user>/...), so they must never be committed.
+# ===========================================================================
+build/
+build-cmake/
+build-asan/
+build-*/
+cmake-build-*/
+
+# CMake bits, in case a configure is ever run in-tree
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+CTestTestfile.cmake
+compile_commands.json
+
+# Compiled objects / libraries
+*.o
+*.obj
+*.lo
+*.slo
+*.a
+*.la
+*.so
+*.so.*
+*.dylib
+*.dll
+
+# Project binaries (Makefile / CMake targets)
+bhrt-cli
+bhrt-bench
+bhrt-test
+bhrt-diagram
+
+# ===========================================================================
+# Python
+# ===========================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+.pytest_cache/
+pytest-cache-files-*/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Virtual environments / conda
+.venv/
+venv/
+env/
+.conda/
+
+# ===========================================================================
+# Secrets & local environment.  Keep real values out of git; commit only
+# the .env.example template.
+# ===========================================================================
+.env
+.env.*
+!.env.example
+
+# ===========================================================================
+# Editor / OS cruft
+# ===========================================================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ===========================================================================
+# Logs / scratch
+# ===========================================================================
+*.log
