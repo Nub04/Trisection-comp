@@ -1,0 +1,34 @@
+# Census of standard simply connected PL 4-manifolds, with VERBATIM Regina
+# 4-manifold isomorphism signatures from:
+#
+#   J. Spreer and S. Tillmann, "The Trisection Genus of Standard Simply
+#   Connected PL 4-Manifolds", Proc. SoCG 2018, LIPIcs vol. 99, article 71,
+#   Appendix A.  (journal version: Experimental Mathematics 31(3), 2022;
+#   arXiv:1712.04915)
+#
+# Each triangulation comes from a simple crystallisation and admits 15
+# ts-tricolourings; the minimum central-surface genus equals the manifold's
+# second Betti number, which is its trisection genus:  S4 -> 0, CP2 -> 1,
+# S2xS2 -> 2  (and K3 -> 22; see the note at the bottom).
+#
+# Format:  <label>|<Regina dim-4 isomorphism signature>
+# Load (Regina build):
+#   bhrt-bench --census data/spreer_tillmann.esig --known data/known_trisection_genus.txt
+
+# S^4 -- 15 ts-tricolourings of types (0;0,0,0)x10, (1;1,0,0)x4, (2;1,1,0)x1
+# (Spreer-Tillmann SoCG 2018, Section 3.2 + Appendix A). min genus = 0.
+S4|gLAAMQbbcddeffffaaaaaaaaaaaaaaaaaaaa
+
+# CP^2 -- unique 8-pentachoron simple crystallisation. trisection genus = 1.
+CP2|iLvLQQQkbghhghhfffggfaaaaaaaaaaaaaaaaaaaaaaaaaa
+
+# S^2 x S^2 -- 14-pentachoron simple crystallisation. trisection genus = 2.
+S2xS2|oLvMPLQAPMQPkbfgghjihhiilkkmllmnnnnaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+
+# K3 surface -- 134-pentachoron simple crystallisation; trisection genus = 22
+# (Spreer-Tillmann SoCG 2018, Theorem 1). The isomorphism signature is ~700
+# characters long; it is deliberately NOT inlined here to avoid any silent
+# transcription error in its long padding tail. To include K3, copy the
+# signature verbatim from the paper's Appendix A (delete the newlines first,
+# as the paper instructs) and append a line:
+#   K3|<that-signature>

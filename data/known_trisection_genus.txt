@@ -1,0 +1,18 @@
+# Published trisection genus g(M) of standard simply connected PL 4-manifolds.
+#
+# Sources:
+#   - D. Gay and R. Kirby, "Trisecting 4-manifolds", Geom. Topol. 20 (2016).
+#   - J. Spreer and S. Tillmann, "The Trisection Genus of Standard Simply
+#     Connected PL 4-Manifolds", SoCG 2018 (LIPIcs 99:71) / arXiv:1712.04915.
+#     K3 trisection genus = 22 is Theorem 1 of that paper.
+#
+# Keyed by the <label> used in data/spreer_tillmann.esig.  Used by:
+#   bhrt-bench --census data/spreer_tillmann.esig --known data/known_trisection_genus.txt
+# The census prints, per node, the computed min genus together with
+# expected_genus and match; the summary line totals validation_pass/fail.
+#
+# <label>  <expected trisection genus>
+S4       0
+CP2      1
+S2xS2    2
+K3       22

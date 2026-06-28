@@ -30,17 +30,25 @@ std::vector<Triangulation> loadEsig(const std::string& path) {
     if (!fh) throw std::runtime_error("cannot open " + path);
     std::string line;
     while (std::getline(fh, line)) {
+        // Tolerate CRLF line endings (.esig files authored on Windows).
+        if (!line.empty() && line.back() == '\r') line.pop_back();
         if (line.empty() || line[0] == '#') continue;
-        // Strip optional "<degrees>|" prefix.
+        // Optional "<prefix>|" before the signature. The prefix is taken as a
+        // human-readable label (e.g. "CP2|iLvL..."), which lets downstream
+        // tools (e.g. bhrt-bench --known) key on a manifold name; legacy files
+        // that put an edge-degree string there simply get it as the label.
         auto bar = line.find('|');
-        std::string sig = (bar == std::string::npos)
-                            ? line
-                            : line.substr(bar + 1);
+        std::string label = (bar == std::string::npos) ? std::string()
+                                                        : line.substr(0, bar);
+        std::string sig   = (bar == std::string::npos) ? line
+                                                        : line.substr(bar + 1);
         // Regina 7.x: fromIsoSig returns a Triangulation<4> by value and
         // throws on an invalid signature.
         try {
             auto R = regina::Triangulation<4>::fromIsoSig(sig);
-            out.push_back(fromRegina(R));
+            Triangulation T = fromRegina(R);
+            if (!label.empty()) T.setLabel(label);
+            out.push_back(std::move(T));
         } catch (const std::exception&) {
             throw std::runtime_error("bad isosig: " + sig);
         }
@@ -51,6 +59,23 @@ std::vector<Triangulation> loadEsig(const std::string& path) {
         "Regina was not compiled in; rebuild with BHRT_HAS_REGINA=1");
 #endif
     return out;
+}
+
+// Public API: load one triangulation from a single isosig ---------------
+
+Triangulation fromReginaIsoSig(const std::string& sig) {
+#if BHRT_HAS_REGINA
+    try {
+        auto R = regina::Triangulation<4>::fromIsoSig(sig);
+        return fromRegina(R);
+    } catch (const std::exception&) {
+        throw std::runtime_error("bad isosig: " + sig);
+    }
+#else
+    (void)sig;
+    throw std::runtime_error(
+        "Regina was not compiled in; rebuild with BHRT_HAS_REGINA=1");
+#endif
 }
 
 // Public API: write .esig file ------------------------------------------
